@@ -2,3 +2,5 @@ this project is designed to help an inexperienced admin, after installing this d
 COMMANDS:
 /trigger login when you aare in creative
 /trigger help to use this datapack
+Messages:
+Hello everyone, today I finally finished developing version 2.3.1 of the unusual items innovations!
