@@ -4,7 +4,7 @@ this project is designed to help an inexperienced admins, after installing this 
 
 
 COMMANDS:
-/trigger login when you aare in creative
+/trigger login when you are in creative
 /trigger help to use this datapack
 
 
