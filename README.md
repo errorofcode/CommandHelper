@@ -1,5 +1,5 @@
 DESCRIPTION:
-this project is designed to help an inexperienced admins, after installing this datapack, you can register /trigger login in the creative in order to confirm that you are an admin and register /trigger help to use the datapack, this is an unofficial version of this datapack, since the main developer stopped releasing such mods and datapacks
+this project is designed to help an inexperienced admins, after installing this datapack, you can register /trigger login in the creative in order to confirm that you are an admin and when you register /trigger help to use the datapack, this is an unofficial version of this datapack, since the main developer stopped releasing such mods and datapacks
 
 
 
