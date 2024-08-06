@@ -10,4 +10,4 @@ COMMANDS:
 
 
 MESSAGES:
-Hello everyone, today I finally finished developing version 2.3.1 of the unusual items innovations!
+Hello everyone, today I finally finished developing version 2.3 of the unusual items innovations!
