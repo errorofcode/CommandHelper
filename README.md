@@ -11,3 +11,12 @@ COMMANDS:
 
 MESSAGES:
 Hello everyone, today I finally finished developing version 2.3 of the unusual items innovations!
+
+
+
+NECESSITY:
+in server.properties
+enable-command-block=true
+function-permission-level=4
+op-permission-level=4
+also a standard minecraft selector
