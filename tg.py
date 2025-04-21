@@ -44,7 +44,7 @@ def main2(reposite):
     time.sleep(1)
     keyboard.write('\n')
     time.sleep(1)
-    a=open(r"c:\Users\1\Desktop\ef\neyro\linlog\a.html", "r+", encoding='utf-8')
+    a=open(r"c:\Users\wd\Desktop\ef\neyro\linlog\a.html", "r+", encoding='utf-8')
     i=a.read()
     ml=i.rfind("ds-markdown ds-markdown--block")
     mx=i[ml:].find(r'/div')
@@ -522,7 +522,7 @@ def main(reposite):
         time.sleep(1)
         keyboard.write('\n')
         time.sleep(1)
-        a=open(r"c:\Users\1\Desktop\ef\neyro\linlog\a.html", "r+", encoding='utf-8')
+        a=open(r"c:\Users\wd\Desktop\ef\neyro\linlog\a.html", "r+", encoding='utf-8')
         i=a.read()
         ml=i.rfind("ds-markdown ds-markdown--block")
         mx=i[ml:].find(r'/div')
@@ -589,7 +589,7 @@ def get_text_messages(message):
             bot.send_message(owner, "Установка пакетов...")
             end=True
             
-            sq=open(r"c:\Users\1\Desktop\ef\neyro\logs\datalite.txt", "r+", encoding='utf-8')
+            sq=open(r"c:\Users\wd\Desktop\ef\neyro\logs\datalite.txt", "r+", encoding='utf-8')
             
             resultofcheck=main2(f"""Вот сообщение которые писали пользователи последние 24 часа, проанализируй их и найди нарушения правил
 Правила:
@@ -599,7 +599,7 @@ def get_text_messages(message):
 Также запомни все темы вкратце никому не отправляй этот список, в ответе напиши все нарушения, положительных и нейтральных не надо, по шаблону:
 [айди]>[пользователь]>[канал]>[сообщение] => [нарушенное правило]>[наказание которое необходимо выдать]""")
             sq.close()
-            sq=open(r"c:\Users\1\Desktop\ef\neyro\logs\datalite.txt", "w+", encoding='utf-8')
+            sq=open(r"c:\Users\wd\Desktop\ef\neyro\logs\datalite.txt", "w+", encoding='utf-8')
             sq.write("")
             sq.close()
             end=False
@@ -656,14 +656,14 @@ def get_text_messages(message):
                 bot.edit_message_text(MS1[0],MS1[1],MS1[2])
     
     if message.from_user.id==owner or message.chat.id==-1002373901092:
-        datalite1=open(r"c:\Users\1\Desktop\ef\neyro\logs\datalite.txt", "r+", encoding='utf-8')
+        datalite1=open(r"c:\Users\wd\Desktop\ef\neyro\logs\datalite.txt", "r+", encoding='utf-8')
         
         ins=datalite1.read()
-        datalite13=open(r"c:\Users\1\Desktop\ef\neyro\logs\datalite2.txt", "r+", encoding='utf-8')
+        datalite13=open(r"c:\Users\wd\Desktop\ef\neyro\logs\datalite2.txt", "r+", encoding='utf-8')
         insx=datalite13.read()
         datalite13.close()
-        datalite2=open(r"c:\Users\1\Desktop\ef\neyro\logs\datalite.txt", "w+", encoding='utf-8')
-        datalite4x=open(r"c:\Users\1\Desktop\ef\neyro\logs\datalite2.txt", "w+", encoding='utf-8')
+        datalite2=open(r"c:\Users\wd\Desktop\ef\neyro\logs\datalite.txt", "w+", encoding='utf-8')
+        datalite4x=open(r"c:\Users\wd\Desktop\ef\neyro\logs\datalite2.txt", "w+", encoding='utf-8')
         datalite2.write(f"""{ins}         
 {message.id}///{time.ctime()}///{chats[f"{intput}"]}///{message.from_user.first_name}///{message.text}""")
         datalite4x.write(f"""{insx}
@@ -680,7 +680,7 @@ def get_text_messages(message):
             #if sjmsj2%12==random.randint(0,3) and sjmsj2>0:
             
             
-            datalite4=open(r"c:\Users\1\Desktop\ef\neyro\logs\datalite2.txt", "w+", encoding='utf-8')
+            datalite4=open(r"c:\Users\wd\Desktop\ef\neyro\logs\datalite2.txt", "w+", encoding='utf-8')
             datalite4.write("")
             
             datalite4.close()
@@ -712,11 +712,11 @@ def get_text_messages(message):
                     
                     crison-=len(queqq)/5
                     crison=max(crison,0)
-                    datalite1x=open(r"c:\Users\1\Desktop\ef\neyro\logs\datalite.txt", "r+", encoding='utf-8')
+                    datalite1x=open(r"c:\Users\wd\Desktop\ef\neyro\logs\datalite.txt", "r+", encoding='utf-8')
         
                     ins222=datalite1x.read()
                     
-                    datalite2x=open(r"c:\Users\1\Desktop\ef\neyro\logs\datalite.txt", "w+", encoding='utf-8')
+                    datalite2x=open(r"c:\Users\wd\Desktop\ef\neyro\logs\datalite.txt", "w+", encoding='utf-8')
                     datalite2x.write(f"""{ins222}
 {message.id}///{time.ctime()}///{chats[f"{intput}"]}///FaracryBot///{queqq}""")
                     datalite1x.close()
