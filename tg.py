@@ -674,12 +674,8 @@ def get_text_messages(message):
         datalite13.close()
         datalite2=open(r"c:\Users\wd\Desktop\ef\neyro\logs\datalite.txt", "w+", encoding='utf-8')
         datalite4x=open(r"c:\Users\wd\Desktop\ef\neyro\logs\datalite2.txt", "w+", encoding='utf-8')
-        if not seppppp:
-            datalite2.write(f"""{ins}         
+        datalite2.write(f"""{ins}         
 {message.id}///{time.ctime()}///{chats[f"{intput}"]}///{message.from_user.first_name}///{message.text}""")
-        if seppppp:
-            datalite2.write(f"""{ins}         
-{message.id}///{time.ctime()}///{chats[f"{intput}"]}///{message.from_user.first_name}///{message.text}/в ответ на/{msg2.from_user.first_name}///{msg2.text}""")
         if not (message.from_user.id==owner and message.text.find(":i:")==0):
             if not seppppp:
                 datalite4x.write(f"""{insx}
@@ -736,8 +732,8 @@ def get_text_messages(message):
                     #if queqq.count("(")>0 and queqq.find("(")>0:
                     #    queqq=queqq[:queqq.rfind("(")-1]
                     queqq = re.sub(r'deepseek','Faracry',queqq,flags=re.IGNORECASE)
-                    #queqq.replace("**", "")
-                    #queqq.replace("_", "")
+                    queqq=queqq.replace("**", "")
+                    queqq=queqq.replace("_", "*")
                     
                     crison-=len(queqq)/5
                     crison=max(crison,0)
@@ -859,7 +855,6 @@ def inita():
     Opilevof обожает динамит и спидраны.
 
     4. Запомненные шутки/треш:
-    "ФК будет девушкой?" – Вечная тема от Жизни и Вано.
 
     "Я создал сапрессор" – WD и его таинственные изобретения.
 
@@ -874,13 +869,12 @@ if input() != ':skip:':
 bot.send_message(-1002373901092, "Запущен")
 bot.send_message(owner, "Запущен")
 while True:
-    try:
-        bot.polling(non_stop=True, interval=0)
-        print("rk")
-    except:
-        time.sleep(1)
-        print("loc error")
-        bot.send_message(-1002373901092, "Net Error Message to WD...")
-        bot.send_message(owner, "Net Error Message to WD...")
+        try:
+            bot.polling(non_stop=True, interval=0)
+            print("rk")
+        except:
+            print('err')
+            time.sleep(60)
+
     
     
