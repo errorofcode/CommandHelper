@@ -581,7 +581,7 @@ def get_text_messages(message):
         intput=message.message_thread_id
         if message.message_thread_id not in lstc:
             
-            intput-'None'
+            intput='None'
         if message.chat.id==-1002373901092 and "reply_to_message" in message.__dict__:
             msg2=message.__dict__["reply_to_message"]
             if msg2.message_thread_id not in lstc:
@@ -674,8 +674,12 @@ def get_text_messages(message):
         datalite13.close()
         datalite2=open(r"c:\Users\wd\Desktop\ef\neyro\logs\datalite.txt", "w+", encoding='utf-8')
         datalite4x=open(r"c:\Users\wd\Desktop\ef\neyro\logs\datalite2.txt", "w+", encoding='utf-8')
-        datalite2.write(f"""{ins}         
+        if not seppppp:
+            datalite2.write(f"""{ins}         
 {message.id}///{time.ctime()}///{chats[f"{intput}"]}///{message.from_user.first_name}///{message.text}""")
+        if seppppp:
+            datalite2.write(f"""{ins}         
+{message.id}///{time.ctime()}///{chats[f"{intput}"]}///{message.from_user.first_name}///{message.text}/в ответ на/{msg2.from_user.first_name}///{msg2.text}""")
         if not (message.from_user.id==owner and message.text.find(":i:")==0):
             if not seppppp:
                 datalite4x.write(f"""{insx}
