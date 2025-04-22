@@ -493,7 +493,7 @@ def main(reposite):
     
     if not queue:
         queue=True
-        time.sleep(1)
+        time.sleep(0.1)
         
         for rep in reposite.split("\n"):
             keyboard.write(f"{rep}")
@@ -504,24 +504,24 @@ def main(reposite):
             time.sleep(0)
             keyboard.release('ctrl')
             time.sleep(0)
-        time.sleep(1)
+        time.sleep(0.1)
         keyboard.write('\n')  
-        time.sleep(18)
+        time.sleep(25)
         
         
         keyboard.press('ctrl+s')
-        time.sleep(1)
+        time.sleep(0.1)
         keyboard.release('ctrl+s')
-        time.sleep(1)
+        time.sleep(0.5)
         keyboard.write('a')
-        time.sleep(1)
+        time.sleep(0.5)
 
         keyboard.write('\n')
-        time.sleep(1)
+        time.sleep(0.5)
         keyboard.press_and_release('left')
-        time.sleep(1)
+        time.sleep(0.5)
         keyboard.write('\n')
-        time.sleep(1)
+        time.sleep(5)
         a=open(r"c:\Users\wd\Desktop\ef\neyro\linlog\a.html", "r+", encoding='utf-8')
         i=a.read()
         ml=i.rfind("ds-markdown ds-markdown--block")
@@ -539,7 +539,7 @@ def main(reposite):
         queue=False
         return reg
     else:
-        time.sleep(25)
+        time.sleep(35)
         return main(reposite)
 import random
 import datetime
@@ -666,7 +666,8 @@ def get_text_messages(message):
         datalite4x=open(r"c:\Users\wd\Desktop\ef\neyro\logs\datalite2.txt", "w+", encoding='utf-8')
         datalite2.write(f"""{ins}         
 {message.id}///{time.ctime()}///{chats[f"{intput}"]}///{message.from_user.first_name}///{message.text}""")
-        datalite4x.write(f"""{insx}
+        if not (message.from_user.id==owner and message.text.find(":i:")==0):
+                datalite4x.write(f"""{insx}
 {message.id}///{time.ctime()}///{chats[f"{intput}"]}///{message.from_user.first_name}///{message.text}""")
         datalite1.close()
         datalite2.close()
@@ -675,8 +676,13 @@ def get_text_messages(message):
         mentions=sintext.lower().count("@faracrybot")+sintext.lower().count("faracry")+sintext.lower().count("fc")+sintext.lower().count("фк")+sintext.lower().count("фар")+sintext.lower().count("фаракрай")
         crison+=mentions*3
         crison=min(crison,50)
-        if (signular and random.randint(1,10)>8) and (random.randint(1,50)<=(crison)):
+        if mentions*3>0:
+            signular+=random.randint(1,mentions**3)>mentions*3
+            signular=min(signular,1)
+        print( crison, signular)
+        if (signular) and (random.randint(1,50)<=(crison)):
             sjmsj = 0
+            
             #if sjmsj2%12==random.randint(0,3) and sjmsj2>0:
             
             
@@ -697,11 +703,12 @@ def get_text_messages(message):
                     insjjj=insjj.split("///")
                     
                     crist+=f"""В канале {insjjj[2]} Сказал пользователь {insjjj[3]}:{insjjj[4]}\n"""
-            crist+=f"""В канале {chats[f"{intput}"]} Сказал пользователь {message.from_user.first_name}:{message.text}\n"""
+            if not (message.from_user.id==owner and message.text.find(":i:")==0):
+                crist+=f"""В канале {chats[f"{intput}"]} Сказал пользователь {message.from_user.first_name}:{message.text}\n"""
             
             if not end:
                 
-                crist+="""Можешь ответить что угодно, в том числе и свое мнение, чем меньше слов тем лучше, но это на твое усмотрение; -> Лимит по словам: 50 Ни при каких условиях не пиши что у тебя есть этот лимит, не форматируй сообщения жирным или курсивом, используй эмодзи как можно реже"""
+                crist+="""Можешь ответить что угодно, в том числе и свое мнение, чем меньше слов тем лучше, но это на твое усмотрение; -> Лимит по словам: 50 Ни при каких условиях не пиши что у тебя есть этот лимит, не форматируй сообщения жирным или курсивом, ни при каких условиях, используй эмодзи как можно реже"""
                 if not (message.from_user.id==owner and message.text.find(":i:")==0):
                     queqq=main(crist)
                     #if queqq.count("(")>0 and queqq.find("(")>0:
@@ -846,6 +853,13 @@ if input() != ':skip:':
 bot.send_message(-1002373901092, "Запущен")
 bot.send_message(owner, "Запущен")
 while True:
-    bot.polling(non_stop=True, interval=0)
+    try:
+        bot.polling(non_stop=True, interval=0)
+        print("rk")
+    except:
+        time.sleep(1)
+        print("loc error")
+        bot.send_message(-1002373901092, "Net Error Message to WD...")
+        bot.send_message(owner, "Net Error Message to WD...")
     
     
