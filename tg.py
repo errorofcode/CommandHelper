@@ -574,13 +574,23 @@ def get_text_messages(message):
         
     crison+=len(message.text)/3
     crison=min(crison,50)
-    
+    seppppp=0
     
     if "message_thread_id" in message.json:
             
         intput=message.message_thread_id
         if message.message_thread_id not in lstc:
-            intput=None
+            
+            intput-'None'
+        if message.chat.id==-1002373901092 and "reply_to_message" in message.__dict__:
+            msg2=message.__dict__["reply_to_message"]
+            if msg2.message_thread_id not in lstc:
+            
+                intput='None'
+            else:
+                intput=msg2.message_thread_id
+            seppppp = 1
+                
     
     
     if message.from_user.id==owner:
@@ -667,8 +677,12 @@ def get_text_messages(message):
         datalite2.write(f"""{ins}         
 {message.id}///{time.ctime()}///{chats[f"{intput}"]}///{message.from_user.first_name}///{message.text}""")
         if not (message.from_user.id==owner and message.text.find(":i:")==0):
+            if not seppppp:
                 datalite4x.write(f"""{insx}
 {message.id}///{time.ctime()}///{chats[f"{intput}"]}///{message.from_user.first_name}///{message.text}""")
+            if seppppp:
+                                datalite4x.write(f"""{insx}
+{message.id}///{time.ctime()}///{chats[f"{intput}"]}///{message.from_user.first_name}///{message.text}/в ответ на/{msg2.from_user.first_name}///{msg2.text}""")
         datalite1.close()
         datalite2.close()
         datalite4x.close()
@@ -701,11 +715,15 @@ def get_text_messages(message):
                 if len(insjj.split("///"))>1:
                     
                     insjjj=insjj.split("///")
-                    
-                    crist+=f"""В канале {insjjj[2]} Сказал пользователь {insjjj[3]}:{insjjj[4]}\n"""
+                    if not seppppp:
+                        crist+=f"""В канале {insjjj[2]} Сказал пользователь {insjjj[3]}:{insjjj[4]}\n"""
+                    if seppppp:
+                        crist+=f"""В канале {insjjj[2]} Сказал пользователь {insjjj[3]}:{insjjj[4]} в ответ на {insjjj[5]}:{insjjj[6]}\n"""
             if not (message.from_user.id==owner and message.text.find(":i:")==0):
-                crist+=f"""В канале {chats[f"{intput}"]} Сказал пользователь {message.from_user.first_name}:{message.text}\n"""
-            
+                if not seppppp:
+                    crist+=f"""В канале {chats[f"{intput}"]} Сказал пользователь {message.from_user.first_name}:{message.text}\n"""
+                if seppppp:
+                    crist+=f"""В канале {chats[f"{intput}"]} Сказал пользователь {message.from_user.first_name}:{message.text} в ответ на {msg2.from_user.first_name}:{msg2.text}\n"""
             if not end:
                 
                 crist+="""Можешь ответить что угодно, в том числе и свое мнение, чем меньше слов тем лучше, но это на твое усмотрение; -> Лимит по словам: 50 Ни при каких условиях не пиши что у тебя есть этот лимит, не форматируй сообщения жирным или курсивом, ни при каких условиях, используй эмодзи как можно реже"""
@@ -760,7 +778,6 @@ def get_text_messages(message):
                 
 bot.send_message(-1002373901092, "Запуск...")
 bot.send_message(owner, "Запуск...")
-
 time.sleep(3)
 print("Start")
 def inita():
